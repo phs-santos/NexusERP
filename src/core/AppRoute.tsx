@@ -13,6 +13,7 @@ import { CustomerForm } from '../pages/customers/CustomerForm';
 import { Sidebar } from './Sidebar';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
+import { NotFound } from '../pages/auth/NotFound';
 
 export const AppRoutes = () => {
 	return (
@@ -22,6 +23,7 @@ export const AppRoutes = () => {
 				<Routes>
 					<Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
 					<Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+					<Route path="*" element={<NotFound />} />
 
 					<Route element={<PrivateRoute><Sidebar /></PrivateRoute>}>
 						<Route path="/" element={<Dashboard />} />
