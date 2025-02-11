@@ -9,7 +9,7 @@ export const Sidebar = () => {
     <div className="flex h-screen">
       <aside className="w-64 bg-white border-r border-gray-200 h-screen flex flex-col">
         <div className="p-4 border-b border-gray-200">
-          <h1 className="text-xl font-bold text-gray-800">Inventory System</h1>
+          <h1 className="text-xl font-bold text-gray-800">NexusERP Sistema</h1>
         </div>
 
         <nav className="flex-1 p-4">

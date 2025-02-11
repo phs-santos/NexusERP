@@ -3,10 +3,11 @@ import { useNavigate } from "react-router";
 import { Users, Search, Plus, Edit, Trash2, Phone, Mail, MapPin } from "lucide-react";
 import { useCustomers } from "../../contexts/CustomerContext";
 import { ICustomer } from "../../types/customer";
+import toast from 'react-hot-toast';
 
 export function CustomerList() {
 	const navigate = useNavigate();
-	const { getAllCustomers } = useCustomers();
+	const { getAllCustomers, deleteCustomer } = useCustomers();
 
 	const [customers, setCustomers] = useState<ICustomer[]>([]);
 	const [search, setSearch] = useState("");
@@ -24,10 +25,16 @@ export function CustomerList() {
 		customer.email.toLowerCase().includes(search.toLowerCase())
 	);
 
-	const handleDelete = (_id: string | any) => {
-		if (window.confirm("Tem certeza que deseja excluir este cliente?")) {
-			console.log(`Cliente ${_id} excluído!`);
-			// Implementar chamada à API para deletar o cliente
+	const handleDelete = async (_id: string | any) => {
+		try {
+			if (window.confirm("Tem certeza que deseja excluir este cliente?")) {
+				await deleteCustomer(_id);
+				setCustomers(customers.filter((customer) => customer._id !== _id));
+				toast.success('Cliente excluído com sucesso');
+			}
+		} catch (error) {
+			console.error("Erro ao excluir cliente:", error);
+			toast.error('Erro ao excluir cliente');
 		}
 	};
 
@@ -98,11 +105,20 @@ export function CustomerList() {
 									<Phone className="w-4 h-4 mr-2" />
 									<span>{customer.phone}</span>
 								</div>
-								<div className="flex items-center text-gray-500">
-									<MapPin className="w-4 h-4 mr-2" />
-									<span>{customer.address}</span>
+								<div className="flex items-start text-gray-500">
+									<MapPin className="w-4 h-4 mr-2 mt-1" />
+									{customer.address ? (
+										<div className="flex flex-col">
+											<span>{customer.address.street}, {customer.address.number}</span>
+											<span>{customer.address.neighborhood}</span>
+											<span>{customer.address.city} - {customer.address.state}, {customer.address.country}</span>
+										</div>
+									) : (
+										<span>Endereço não informado</span>
+									)}
 								</div>
 							</div>
+
 						</div>
 					))}
 				</div>

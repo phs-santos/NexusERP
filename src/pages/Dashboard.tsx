@@ -1,6 +1,7 @@
 import { Package, Users, AlertTriangle, TrendingUp } from 'lucide-react';
 import { DashboardCard } from '../components/DashboardCard';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+import { useCustomers } from '../contexts/CustomerContext';
 
 interface CardDashboardProps {
 	title: string;
@@ -10,6 +11,17 @@ interface CardDashboardProps {
 }
 
 export function Dashboard() {
+	const { getTotalCustomers } = useCustomers();
+	const [totalCustomers, setTotalCustomers] = useState("Carregando...");
+
+	useEffect(() => {
+		async function fetchCustomers() {
+			const total = await getTotalCustomers();
+			setTotalCustomers(total.toString());
+		}
+
+		fetchCustomers();
+	}, [getTotalCustomers]);
 
 	const dashboardListCard: CardDashboardProps[] = [
 		{
@@ -19,8 +31,8 @@ export function Dashboard() {
 			iconColor: "bg-blue-500",
 		},
 		{
-			title: "Clientes Ativos",
-			value: "45",
+			title: "Total de Clientes Cadastrados",
+			value: totalCustomers,
 			icon: <Users className="text-white" size={24} />,
 			iconColor: "bg-green-500",
 		},
