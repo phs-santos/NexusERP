@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import { Tags, ArrowLeft } from 'lucide-react';
 import { useCategories } from '../../contexts/CategoryContext';
 import { Category } from '../../types';

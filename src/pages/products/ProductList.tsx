@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { Package, Search, Plus, Edit, Trash2 } from 'lucide-react';
 import { useProducts } from '../../contexts/ProductContext';
 

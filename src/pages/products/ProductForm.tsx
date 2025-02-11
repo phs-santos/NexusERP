@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import { Package, ArrowLeft } from 'lucide-react';
 import { useProducts } from '../../contexts/ProductContext';
 import { Product } from '../../types';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { Tags, Search, Plus, Edit, Trash2 } from 'lucide-react';
 import { useCategories } from '../../contexts/CategoryContext';
 

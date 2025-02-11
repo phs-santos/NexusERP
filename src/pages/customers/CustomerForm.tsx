@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import { Users, ArrowLeft } from 'lucide-react';
 import { useCustomers } from '../../contexts/CustomerContext';
 import { Customer } from '../../types';

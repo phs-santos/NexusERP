@@ -1,4 +1,4 @@
-// import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router';
 // import { LayoutDashboard, Package, Tags, Users, ClipboardList, ShoppingCart, LogOut } from 'lucide-react';
 // import { useAuth } from '../contexts/AuthContext';
 
@@ -116,7 +116,7 @@
 //   );
 // }
 
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router';
 import { LayoutDashboard, Package, Tags, Users, ClipboardList, ShoppingCart, LogOut } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 

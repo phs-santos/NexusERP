@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { Users, Search, Plus, Edit, Trash2, Phone, Mail, MapPin } from 'lucide-react';
 import { useCustomers } from '../../contexts/CustomerContext';
 import { ICustomer } from '../../types/customer';
