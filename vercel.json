@@ -1,9 +1,10 @@
 {
     "version": 2,
-    "rewrite": [
-        {
-            "source": "/(.*)",
-            "destination": "/"
-        }
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
     ]
-}
+  }
+  
