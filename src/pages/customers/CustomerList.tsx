@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { Users, Search, Plus, Edit, Trash2, Phone, Mail, MapPin } from "lucide-react";
+import { Users, Search, Plus, Edit, Trash2, Phone, Mail, MapPin, Loader } from "lucide-react";
 import { useCustomers } from "../../contexts/CustomerContext";
 import { ICustomer } from "../../types/customer";
 import toast from 'react-hot-toast';
@@ -64,7 +64,11 @@ export function CustomerList() {
 				</div>
 			</div>
 
-			{filteredCustomers.length === 0 ? (
+			{loading ? (
+				<div className="flex justify-center items-center py-12">
+					<Loader className="animate-spin text-blue-500" size={48} />
+				</div>
+			) : filteredCustomers.length === 0 ? (
 				<div className="text-center py-12">
 					<Users className="mx-auto text-gray-400 mb-4" size={48} />
 					<h3 className="text-lg font-medium text-gray-900">Nenhum cliente encontrado</h3>
@@ -107,18 +111,9 @@ export function CustomerList() {
 								</div>
 								<div className="flex items-start text-gray-500">
 									<MapPin className="w-4 h-4 mr-2 mt-1" />
-									{customer.address ? (
-										<div className="flex flex-col">
-											<span>{customer.address.street}, {customer.address.number}</span>
-											<span>{customer.address.neighborhood}</span>
-											<span>{customer.address.city} - {customer.address.state}, {customer.address.country}</span>
-										</div>
-									) : (
-										<span>Endereço não informado</span>
-									)}
+									<span>{customer.address ? `${customer.address.street}, ${customer.address.number}` : "Endereço não informado"}</span>
 								</div>
 							</div>
-
 						</div>
 					))}
 				</div>
