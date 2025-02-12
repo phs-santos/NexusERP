@@ -3,8 +3,8 @@ import { AppRoutes } from './core/AppRoute';
 
 function App() {
 	return (
-		<AuthContext.AuthProvider>
-			<ApiContext.ApiProvider>
+		<ApiContext.ApiProvider>
+			<AuthContext.AuthProvider>
 				<CustomerContext.CustomerProvider>
 					<ProductContext.ProductProvider>
 						<CategoryContext.CategoryProvider>
@@ -12,8 +12,8 @@ function App() {
 						</CategoryContext.CategoryProvider>
 					</ProductContext.ProductProvider>
 				</CustomerContext.CustomerProvider>
-			</ApiContext.ApiProvider>
-		</AuthContext.AuthProvider>
+			</AuthContext.AuthProvider>
+		</ApiContext.ApiProvider>
 	);
 }
 

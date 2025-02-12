@@ -5,6 +5,17 @@ export interface User {
 	role: 'admin' | 'user';
 }
 
+export interface IUser {
+	_id: string;
+	name: string;
+	username: string;
+	email: string;
+	role: 'admin' | 'user' | 'god';
+	exp: number;
+	iat: number;
+	token: string;
+}
+
 export interface Product {
 	id: string;
 	name: string;
