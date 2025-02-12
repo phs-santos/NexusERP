@@ -7,8 +7,8 @@ import toast from 'react-hot-toast';
 
 export function CustomerList() {
 	const navigate = useNavigate();
-	const { getAllCustomers, deleteCustomer } = useCustomers();
-
+	const { loading, getAllCustomers, deleteCustomer } = useCustomers();
+	
 	const [customers, setCustomers] = useState<ICustomer[]>([]);
 	const [search, setSearch] = useState("");
 
